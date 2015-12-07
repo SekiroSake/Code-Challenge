@@ -1,0 +1,65 @@
+<head>
+  <title>demo-game</title>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>Stone - Paper - Scissors</h1>       
+       {{>loginButtons}}
+    </header>
+        <div>
+			<p>Go?<span id="you">Please choose</span></p>
+			<p><button id="st" onclick="p(1);">Stone</button></p>
+			<p><button id="mb" onclick="p(2);">Paper</button></p>
+			<p><button id="jz" onclick="p(3);">Scissors</button></p>
+		</div>
+		<div>
+			<p>AI?</p>
+			<span id="pc"></span>
+		</div>
+		<div id="cu"></div>
+		<div id="la"><button id="agin" onclick="agin()">Once more</button></div>
+        
+        
+        
+        <div id="scoreboard">
+            <h1>{{scoreOne}} || {{scoreTwo}}</h1>
+        </div>
+        <div id="p1"><h3><strong>Player A: {{username}}</strong></h3></div>
+        <div id='arenaA'>{{arenaA}}</div>
+        {{#if currentUser}}
+        <div>
+            {{>stone}}
+            {{>paper}}
+            {{>scissors}}
+        </div>
+        {{/if}}
+        
+        <div id="p2"><h3><strong>Player B: {{username}}</strong></h3></div>   
+        
+        <div id='arenaB'>{{arenaB}}</div>       
+          
+        <div class="start">
+          {{>controller}}
+        </div>
+        <div class="clear">
+          {{>clear}}
+        </div>
+  </div>
+</body>
+<template name="stone">  
+    <button name="stone"  class="stone-btn" onclick=p(1)>stone</button>
+</template>
+<template name="paper">  
+    <button name="paper"  class="paper-btn" onclick=p(2)>paper</button>
+</template>
+<template name="scissors">  
+    <button name="play"  class="scissors-btn" onclick=p(3)>scissors</button>
+</template>
+<template name="controller">  
+    <button name="play"  class="start-to-play">Play</button>
+</template>
+<template name="clear">
+  <button name="clear"  class="clear-the-game">Clear</button>
+</template>
